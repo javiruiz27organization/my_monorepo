@@ -1,9 +1,9 @@
-import NxWelcome from './nx-welcome';
+import { MainPortfolioPage } from './MainPortfolioPage';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="portfolio" />
+      <MainPortfolioPage />
     </div>
   );
 }
