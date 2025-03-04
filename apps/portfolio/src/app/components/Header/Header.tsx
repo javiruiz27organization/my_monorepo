@@ -5,7 +5,7 @@ const GIFT_URL =
 
 export const Header = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-28 text-center px-12 bg-white shadow-md">
+    <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-28 text-center px-12 bg-white shadow-md z-999">
       <div className="flex items-center gap-4">
         <img
           src={GIFT_URL}

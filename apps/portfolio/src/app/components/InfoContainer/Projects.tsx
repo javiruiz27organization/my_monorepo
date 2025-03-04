@@ -1,5 +1,7 @@
 import React from 'react';
+import { useScrollToId } from '../../hooks';
 
 export const Projects: React.FC = () => {
-  return <div>Projects</div>;
+  const { projectsId } = useScrollToId();
+  return <div id={projectsId}>Projects</div>;
 };

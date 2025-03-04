@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from './components/Header/Header';
-import { InfoContainer } from './components/InfoContainer/InfoContainer';
+import { Header } from './components/Header';
+import { InfoContainer } from './components/InfoContainer';
 
 export const MainPortfolioPage = () => {
   return (
