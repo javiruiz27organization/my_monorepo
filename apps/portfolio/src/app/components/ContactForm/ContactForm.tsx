@@ -1,5 +1,10 @@
 import { Button, FormControl, TextField } from '@mui/material';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import {
+  Controller,
+  RegisterOptions,
+  SubmitHandler,
+  useForm,
+} from 'react-hook-form';
 
 type Inputs = {
   name: string;
@@ -12,8 +17,16 @@ export const ContactForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm<Inputs>();
+    control,
+    formState: { errors, isValid },
+  } = useForm<Inputs>({
+    defaultValues: {
+      name: '',
+      email: '',
+      description: '',
+    },
+    mode: 'onTouched',
+  });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
@@ -22,42 +35,85 @@ export const ContactForm = () => {
       className="flex flex-col justify-center items-center h-full gap-8 w-full"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <FormControl fullWidth>
-        <p className="font-bold mb-2">Name</p>
-        <TextField
-          label="Name"
-          variant="outlined"
-          fullWidth
-          {...register('name', { required: true })}
-          helperText={errors.name ? 'Name is required' : ''}
-          value={watch('name')}
-        />
-      </FormControl>
-      <FormControl fullWidth>
-        <p className="font-bold mb-2">Email</p>
-        <TextField
-          label="Email"
-          variant="outlined"
-          fullWidth
-          {...register('email', { required: true })}
-          helperText={errors.email ? 'Email is required' : ''}
-          value={watch('email')}
-        />
-      </FormControl>
-      <FormControl fullWidth>
-        <p className="font-bold mb-2">Message</p>
-        <TextField
-          label="Message"
-          variant="outlined"
-          fullWidth
-          multiline
-          rows={5}
-          {...register('description', { required: true })}
-          helperText={errors.email ? 'Description is required' : ''}
-          value={watch('description')}
-        />
-      </FormControl>
-      <Button variant="contained" color="primary" type="submit" size="large">
+      <Controller
+        name={'name'}
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field, fieldState: { error } }) => {
+          return (
+            <div className="flex flex-col w-full">
+              <p className="font-bold">Name</p>
+              <TextField
+                {...field}
+                variant="outlined"
+                fullWidth
+                error={!!error}
+                helperText={error?.message || ''}
+              />
+            </div>
+          );
+        }}
+      />
+
+      <Controller
+        name={'email'}
+        control={control}
+        rules={{
+          required: true,
+          pattern: {
+            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+            message: 'Format is not correct',
+          },
+        }}
+        render={({ field, fieldState: { error } }) => {
+          return (
+            <div className="flex flex-col w-full">
+              <p className="font-bold">Email</p>
+              <TextField
+                {...field}
+                variant="outlined"
+                fullWidth
+                error={!!error}
+                helperText={error?.message || ''}
+              />
+            </div>
+          );
+        }}
+      />
+      <Controller
+        name={'description'}
+        control={control}
+        rules={{
+          required: true,
+          maxLength: 1000,
+        }}
+        render={({ field, fieldState: { error } }) => {
+          return (
+            <div className="flex flex-col w-full">
+              <p className="font-bold">Email</p>
+              <TextField
+                {...field}
+                variant="outlined"
+                fullWidth
+                multiline
+                rows={5}
+                error={!!error}
+                helperText={error?.message || ''}
+              />
+            </div>
+          );
+        }}
+      />
+
+      <Button
+        disabled={!isValid}
+        variant="contained"
+        color="primary"
+        type="submit"
+        size="large"
+      >
         Submit
       </Button>
     </form>
