@@ -1,10 +1,5 @@
-import { Button, FormControl, TextField } from '@mui/material';
-import {
-  Controller,
-  RegisterOptions,
-  SubmitHandler,
-  useForm,
-} from 'react-hook-form';
+import { Button, TextField } from '@mui/material';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 type Inputs = {
   name: string;
@@ -14,11 +9,9 @@ type Inputs = {
 
 export const ContactForm = () => {
   const {
-    register,
     handleSubmit,
-    watch,
     control,
-    formState: { errors, isValid },
+    formState: { isValid },
   } = useForm<Inputs>({
     defaultValues: {
       name: '',
