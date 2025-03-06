@@ -1,11 +1,7 @@
 import { MainPortfolioPage } from './MainPortfolioPage';
 
 export function App() {
-  return (
-    <div>
-      <MainPortfolioPage />
-    </div>
-  );
+  return <MainPortfolioPage />;
 }
 
 export default App;
