@@ -8,6 +8,7 @@
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
     "@mui/material": "6.4.6",
+    "@nrwl/workspace": "^19.8.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "7.54.2"
