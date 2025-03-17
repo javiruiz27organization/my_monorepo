@@ -3,7 +3,7 @@ export const useScrollToId = () => {
   const projectsId = 'projects';
   const contactId = 'contact';
 
-  const scrollToId = (id: string) => {
+  const scrollToId = (id: any) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
