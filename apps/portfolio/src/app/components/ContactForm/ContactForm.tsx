@@ -85,7 +85,7 @@ export const ContactForm = () => {
         render={({ field, fieldState: { error } }) => {
           return (
             <div className="flex flex-col w-full">
-              <p className="font-bold">Email</p>
+              <p className="font-bold">Description</p>
               <TextField
                 {...field}
                 variant="outlined"

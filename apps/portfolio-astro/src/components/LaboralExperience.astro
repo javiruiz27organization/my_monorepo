@@ -1,0 +1,32 @@
+---
+const experiences = [
+  {
+    company: 'Empresa Actual',
+    position: 'Desarrollador Full Stack',
+    period: '2023 - Presente',
+    description: 'Desarrollo de aplicaciones web utilizando React, Node.js y TypeScript.'
+  },
+  {
+    company: 'Empresa Anterior',
+    position: 'Desarrollador Frontend',
+    period: '2021 - 2023',
+    description: 'Desarrollo de interfaces de usuario con React y implementación de diseños responsivos.'
+  }
+];
+---
+
+<section id="experience" class="py-20 bg-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-12">Experiencia Laboral</h2>
+    <div class="space-y-8">
+      {experiences.map(exp => (
+        <div class="bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">{exp.company}</h3>
+          <p class="text-blue-400">{exp.position}</p>
+          <p class="text-gray-400">{exp.period}</p>
+          <p class="mt-2 text-gray-300">{exp.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
