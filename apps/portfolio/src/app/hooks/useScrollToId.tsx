@@ -14,5 +14,6 @@ export const useScrollToId = () => {
     aboutId,
     projectsId,
     contactId,
+    scrollToId,
   };
 };
