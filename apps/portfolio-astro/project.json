@@ -7,21 +7,21 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "astro build",
+        "command": "npx astro build",
         "cwd": "apps/portfolio-astro"
       }
     },
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "astro dev",
+        "command": "npx astro dev",
         "cwd": "apps/portfolio-astro"
       }
     },
     "preview": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "astro preview",
+        "command": "npx astro preview",
         "cwd": "apps/portfolio-astro"
       }
     }
