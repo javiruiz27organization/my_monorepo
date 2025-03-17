@@ -18,7 +18,7 @@ export const GetToKnowMe = () => {
         year of my degree I have been working within large companies in the IT
         sector. If you need anything ... contact me !!
       </p>
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-8 mb-8">
         <Button variant="contained" color="primary" onClick={handleGoToContact}>
           Contact!
         </Button>

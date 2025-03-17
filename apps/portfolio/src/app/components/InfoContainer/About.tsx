@@ -2,6 +2,7 @@ import React from 'react';
 import { useScrollToId } from '../../hooks';
 import { Myskills } from '../MySkills/Myskills';
 import { GetToKnowMe } from '../GetToKnowMe';
+import { LaboralExperioence } from '../LaboralExperience/LaboralExperioence';
 
 export const About: React.FC = () => {
   const { aboutId } = useScrollToId();
@@ -28,6 +29,9 @@ export const About: React.FC = () => {
         <div className="w-1/2">
           <Myskills />
         </div>
+      </div>
+      <div className="h-1/2 text-start w-full">
+        <LaboralExperioence />
       </div>
     </div>
   );
